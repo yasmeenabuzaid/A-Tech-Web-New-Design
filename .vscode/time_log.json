@@ -1,0 +1,94 @@
+{
+  "A-tech-web": {
+    "src\\app\\process\\page.tsx": [
+      {
+        "date": "2026-01-18T08:45:00.372Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 1
+      }
+    ],
+    ".vscode\\time_log.json": [
+      {
+        "date": "2026-01-18T08:45:02.724Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 0
+      }
+    ],
+    "tsconfig.json.git": [
+      {
+        "date": "2026-01-18T08:45:20.062Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 13
+      },
+      {
+        "date": "2026-01-18T08:46:11.573Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 52
+      }
+    ],
+    "src\\app\\components\\footer.tsx.git": [
+      {
+        "date": "2026-01-18T08:46:38.066Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 6
+      },
+      {
+        "date": "2026-01-18T08:46:56.448Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 18
+      },
+      {
+        "date": "2026-01-18T08:47:22.041Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 25
+      },
+      {
+        "date": "2026-01-18T08:47:46.805Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 25
+      },
+      {
+        "date": "2026-01-18T08:47:52.205Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 5
+      }
+    ],
+    "src\\app\\components\\Header.tsx.git": [
+      {
+        "date": "2026-01-18T08:48:03.694Z",
+        "user": {
+          "name": "yasmeenabuzaid",
+          "email": "yasmeenabuzaid552@gmail.com"
+        },
+        "timeSpent": 6
+      }
+    ]
+  }
+}

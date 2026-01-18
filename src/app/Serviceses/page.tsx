@@ -242,7 +242,7 @@ export function Services() {
       {/* CTA */}
       <section className="py-20 text-white" style={{ backgroundColor: '#031338' }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl mb-6">Let's Build Something Extraordinary</h2>
+          <h2 className="text-4xl mb-6">Let&apos;s Build Something Extraordinary</h2>
           <p className="text-xl text-gray-300 mb-8">
             Have a complex challenge? Need a scalable solution? Our team is ready to architect your next breakthrough.
           </p>

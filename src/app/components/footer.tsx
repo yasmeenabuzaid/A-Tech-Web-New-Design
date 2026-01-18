@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Github } from "lucide-react";
-import Link from "next/link"; // استيراد Link من Next.js
+import Link from "next/link"; 
 
 export function Footer() {
     return (
@@ -14,7 +14,7 @@ export function Footer() {
                         <div className="flex items-center mb-4">
                             <img
                                 src={"/images/logo-light.png"}
-                                className="w-40 h-10 rounded-lg flex items-center justify-center"
+                                className="w-30 h-10 rounded-lg flex items-center justify-center"
                             />
                         </div>
                         <p className="text-gray-400 text-sm">
@@ -28,7 +28,7 @@ export function Footer() {
                         <ul className="space-y-2">
                             <li>
                                 <Link
-                                    href="/services" // هنا استخدمنا Link مع المسار المناسب
+                                    href="/services" 
                                     className="text-gray-400 hover:text-[#9306FF] transition-colors text-sm"
                                 >
                                     Custom Development

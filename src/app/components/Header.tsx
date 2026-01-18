@@ -15,7 +15,7 @@ export function Header() {
           <div className="flex items-center cursor-pointer">
             <img
               src="/images/logo.png"
-              className="w-40 h-10 rounded-lg flex items-center justify-center"
+              className="w-30 h-10 rounded-lg flex items-center justify-center"
             />
           </div>
 
@@ -65,7 +65,7 @@ export function Header() {
             </Link>
 
             <Link
-              href="/contactus"
+              href="/contactUs"
               className="px-6 py-2 rounded-lg text-white transition-all hover:opacity-90 hover:shadow-lg"
               style={{ backgroundColor: "#9306FF" }}
             >
