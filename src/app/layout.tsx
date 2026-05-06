@@ -11,8 +11,21 @@ export const metadata: Metadata = {
     default: "A-Tech ",
     template: "%s | A-Tech"
   },
-  description: "Transform your business with A-Tech's unified ERP and Smart POS ecosystem. Custom software engineering designed for high-scale retail, hospitality, and enterprise growth.",
-  keywords: ["ERP Systems", "Smart POS", "Retail Software", "Custom Software Engineering", "Business Automation", "Unified Commerce"],
+  description: "Scale your operations with A-Tech's Unified Business OS. We build advanced ERP, Smart POS, and bespoke software engineering solutions for high-growth enterprises.",
+  icons: {
+    icon: '/app-icon-v2.png',
+    apple: '/app-icon-v2.png', 
+  },
+  keywords: [
+    "Enterprise ERP", 
+    "Smart POS Systems", 
+    "Retail Technology", 
+    "Custom Software Engineering", 
+    "Business Automation OS", 
+    "Unified Commerce",
+    "Digital Transformation",
+    "SaaS Development"
+  ],
   creator: "A-Tech Workspace",
   publisher: "A-Tech",
   formatDetection: {
@@ -21,17 +34,18 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: "A-Tech | Unified Business OS",
-    description: "The complete ecosystem for modern business: Inventory, POS, and Finance in one loop.",
+    title: "A-Tech | Enterprise Software & Unified OS",
+    description: "Centralize your operations with A-Tech. Integrating advanced ERP, POS, and custom software architecture to drive growth and market dominance.",
     url: "https://atech-workspace.com",
     siteName: "A-Tech",
     locale: "en_US",
     type: "website",
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "A-Tech | Unified Business OS",
-    description: "Build exactly what your business needs with our enterprise-grade solutions.",
+    title: "A-Tech | Engineering the Future of Business",
+    description: "Scale faster with A-Tech. Bespoke software engineering, advanced ERP, and Smart POS solutions built for ultimate enterprise growth.",
   },
   robots: {
     index: true,
