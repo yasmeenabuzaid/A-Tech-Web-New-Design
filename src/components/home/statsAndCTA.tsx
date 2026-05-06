@@ -1,89 +1,85 @@
-import React from "react";
+"use client";
 
-export const StatsSection = () => (
-  <section className="py-20 bg-gray-50">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl mb-4" style={{ color: "#031338" }}>
-          Trusted by Industry Leaders
-        </h2>
-        <p className="text-xl text-gray-600">
-          Join hundreds of businesses transforming their operations
-        </p>
-      </div>
+import React, { useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
-      <div className="grid md:grid-cols-3 gap-8">
-        <div className="bg-white p-8 rounded-xl">
-          <div className="text-5xl mb-4" style={{ color: "#9306FF" }}>
-            500+
-          </div>
-          <h4 className="mb-2" style={{ color: "#031338" }}>
-            Projects Delivered
-          </h4>
-          <p className="text-gray-600">
-            Across retail, hospitality, healthcare, and finance sectors
-          </p>
-        </div>
-
-        <div className="bg-white p-8 rounded-xl">
-          <div className="text-5xl mb-4" style={{ color: "#9306FF" }}>
-            98%
-          </div>
-          <h4 className="mb-2" style={{ color: "#031338" }}>
-            Client Satisfaction
-          </h4>
-          <p className="text-gray-600">
-            Long-term partnerships built on trust and results
-          </p>
-        </div>
-
-        <div className="bg-white p-8 rounded-xl">
-          <div className="text-5xl mb-4" style={{ color: "#9306FF" }}>
-            24/7
-          </div>
-          <h4 className="mb-2" style={{ color: "#031338" }}>
-            Support & Monitoring
-          </h4>
-          <p className="text-gray-600">
-            Always-on support keeps your business running smoothly
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-);
-
-interface CTASectionProps {
-  title?: string;
-  description?: string;
-  buttonText?: string;
+interface AnimatedCounterProps {
+  from: number;
+  to: number;
+  duration?: number;
 }
 
-export const CTASection = ({
-  title = "Ready to Transform Your Business?",
-  description = "Whether you need a custom solution or want to experience our all-in-one platform.", 
-  buttonText = "Get a Quote", 
-}: CTASectionProps) => (
-  <section
-    className="py-20 text-white"
-    style={{ backgroundColor: "#031338" }}
-  >
-    <div className="max-w-4xl mx-auto px-4 text-center">
-      <h2 className="text-4xl font-bold mb-6">{title}</h2>
-      <p className="text-xl text-gray-300 mb-8">{description}</p>
-      
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <button
-          className="px-8 py-4 rounded-lg font-bold transition-all hover:scale-105"
-          style={{ backgroundColor: "#9306FF" }}
-        >
-          {buttonText}
-        </button>
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ from, to, duration = 2 }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  useEffect(() => {
+    if (isInView) {
+      let startTimestamp: number;
+      const step = (timestamp: number) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / (duration * 1000), 1);
         
-        <button className="px-8 py-4 rounded-lg border-2 border-white font-bold hover:bg-white/10 transition-all">
-          See How We Work
-        </button>
+        const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+        const currentCount = Math.floor(easeOutProgress * (to - from) + from);
+        
+        if (ref.current) {
+          ref.current.textContent = currentCount.toString();
+        }
+        
+        if (progress < 1) {
+          window.requestAnimationFrame(step);
+        }
+      };
+      window.requestAnimationFrame(step);
+    }
+  }, [isInView, from, to, duration]);
+
+  return <span ref={ref}>{from}</span>;
+};
+
+export function StatsSection() {
+  const stats = [
+    { label: "Enterprise Projects", value: 500, suffix: "+" },
+    { label: "System Uptime", value: 99, suffix: ".9%" },
+    { label: "Dedicated Support", value: "24/7", isStatic: true },
+  ];
+
+  return (
+    <section className="w-full py-20 flex justify-center items-center bg-transparent">
+      <div className="container max-w-7xl mx-auto px-4">
+        <div className="relative overflow-hidden py-20 md:py-24">
+          
+          <div className="absolute top-0 left-[-50%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/5 to-transparent skew-x-[-45deg] animate-[shimmer_8s_infinite] pointer-events-none opacity-30" />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 relative z-10">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                className="text-center flex flex-col items-center justify-center"
+              >
+                <div className="text-6xl md:text-7xl font-black mb-4 tracking-tighter text-white flex items-baseline">
+                  {stat.isStatic ? (
+                    stat.value
+                  ) : (
+                    <>
+                      <AnimatedCounter from={0} to={stat.value as number} />
+                      <span className="text-white ml-1">{stat.suffix}</span>
+                    </>
+                  )}
+                </div>
+                <h4 className="text-xs md:text-sm font-semibold text-white uppercase tracking-[0.2em] opacity-60">
+                  {stat.label}
+                </h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+}

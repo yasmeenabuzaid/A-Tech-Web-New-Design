@@ -10,10 +10,10 @@ export function Products() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <CoreProducts />
+      <CoreProducts /> 
       <ERPFeatures />
       <IndustryFit />
-      <CTASection />
+      {/* <CTASection /> */}
     </div>
   );
 }

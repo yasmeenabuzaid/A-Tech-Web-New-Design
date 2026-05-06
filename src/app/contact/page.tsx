@@ -7,11 +7,11 @@ import { ContactOptions } from "../../components/contactUs/contactOptions";
 
 export function Contact() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen text-white font-sans relative">
       <ContactHero />
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12 text-white">
             <ContactInfo />
             <ContactForm />
           </div>
