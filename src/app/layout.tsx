@@ -8,14 +8,14 @@ import FloatingWidgets from "./layout/floatingWidgets";
 
 export const metadata: Metadata = {
   title: {
-    default: "A-Tech ",
+    default: "A-Tech",
     template: "%s | A-Tech"
   },
   description: "Scale your operations with A-Tech's Unified Business OS. We build advanced ERP, Smart POS, and bespoke software engineering solutions for high-growth enterprises.",
-  icons: {
-    icon: '/app-icon-v2.png',
-    apple: '/app-icon-v2.png', 
-  },
+icons: {
+  icon: '/app-icon-v2.png?v=1', 
+  apple: '/app-icon-v2.png?v=1', 
+},
   keywords: [
     "Enterprise ERP", 
     "Smart POS Systems", 

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion, Variants, Transition } from "framer-motion";
 import { Code2, Boxes, ArrowRight, CheckCircle2, Cpu } from "lucide-react";
 
@@ -28,6 +29,8 @@ const OfferingCard: React.FC<OfferingCardProps> = ({ type }) => {
     ease: "easeInOut",
     delay: isSoftware ? 0 : 0.5,
   };
+
+  const targetHref = isSoftware ? "/custom-project" : "https://atech-workspace.com/en";
 
   return (
     <motion.div
@@ -115,7 +118,7 @@ const OfferingCard: React.FC<OfferingCardProps> = ({ type }) => {
           {isSoftware ? (
             <>
               Custom Core<br />Development
-            </    >
+            </>
           ) : (
             <>
               All-in-One<br />Business OS
@@ -132,7 +135,6 @@ const OfferingCard: React.FC<OfferingCardProps> = ({ type }) => {
             : "Complete command center. Fully integrated ERP & POS for modern enterprises."}
         </p>
 
-        {/* This ul will now push the button down */}
         <ul className="relative z-10 space-y-4 mb-10 w-full flex-grow flex flex-col">
           {(isSoftware
             ? ["Enterprise Systems", "Cloud Integration"]
@@ -161,34 +163,38 @@ const OfferingCard: React.FC<OfferingCardProps> = ({ type }) => {
           ))}
         </ul>
 
-        <button
-          className={`relative z-10 flex items-center gap-2 text-sm font-medium text-white transition-all duration-300 group/btn px-6 py-3 rounded-full border shadow-sm group-hover:scale-[1.02] active:scale-[0.98] flex-shrink-0
-          ${
-            isSoftware
-              ? "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 shadow-inner"
-              : "bg-gradient-to-r from-[#9306FF] to-[#7e00e6] border-transparent hover:shadow-[0_0_20px_rgba(147,6,255,0.4)]"
-          }`}
-        >
-          {isSoftware ? (
-            <>
-              {" "}
-              Discover{" "}
-              <ArrowRight
-                size={16}
-                className="rotate-180 group-hover/btn:-translate-x-1 transition-transform duration-300 text-[#d8b4ff]"
-              />{" "}
-            </>
-          ) : (
-            <>
-              {" "}
-              Explore OS{" "}
-              <ArrowRight
-                size={16}
-                className="group-hover/btn:translate-x-1 transition-transform duration-300"
-              />{" "}
-            </>
-          )}
-        </button>
+        <Link href={targetHref} passHref legacyBehavior>
+          <a
+            target={!isSoftware ? "_blank" : "_self"} 
+            rel="noopener noreferrer"
+            className={`relative z-10 flex items-center gap-2 text-sm font-medium text-white transition-all duration-300 group/btn px-6 py-3 rounded-full border shadow-sm group-hover:scale-[1.02] active:scale-[0.98] flex-shrink-0
+            ${
+              isSoftware
+                ? "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20 shadow-inner"
+                : "bg-gradient-to-r from-[#9306FF] to-[#7e00e6] border-transparent hover:shadow-[0_0_20px_rgba(147,6,255,0.4)]"
+            }`}
+          >
+            {isSoftware ? (
+              <>
+                {" "}
+                Discover{" "}
+                <ArrowRight
+                  size={16}
+                  className="rotate-180 group-hover/btn:-translate-x-1 transition-transform duration-300 text-[#d8b4ff]"
+                />{" "}
+              </>
+            ) : (
+              <>
+                {" "}
+                Explore OS{" "}
+                <ArrowRight
+                  size={16}
+                  className="group-hover/btn:translate-x-1 transition-transform duration-300"
+                />{" "}
+              </>
+            )}
+          </a>
+        </Link>
       </motion.div>
     </motion.div>
   );

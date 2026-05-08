@@ -1,30 +1,33 @@
 import nodemailer from "nodemailer";
 
-export const transporter = nodemailer.createTransport({
-  host: process.env.SYS_EMAIL_HOST,
-//   port → البورت (465 مع SSL أو 587 مع TLS).
-// secure → إذا استخدمنا SSL (true مع 465).
-  port: Number(process.env.SYS_EMAIL_PORT),
-  secure: true, // true only for 465
-  auth: {
-    user: process.env.SYS_EMAIL_USER,
-    pass: process.env.SYS_EMAIL_PASS,
-  },
-});
-
-export async function sendMail({
-  to,
-  subject,
-  html,
-}: {
+interface SendMailOptions {
   to: string;
   subject: string;
   html: string;
-}) {
-  return await transporter.sendMail({
-    from: `"${process.env.MAIL_FROM_NAME}" <${process.env.SYS_EMAIL}>`,
-    to,
-    subject,
-    html,
-  });
 }
+
+export const sendMail = async ({ to, subject, html }: SendMailOptions) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: "gmail", 
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER, 
+      to: to,                      
+      subject: subject,            
+      html: html,                   
+    };
+
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent: " + info.response);
+    return true;
+  } catch (error) {
+    console.error("Error sending email:", error);
+    throw new Error("Failed to send email");
+  }
+};

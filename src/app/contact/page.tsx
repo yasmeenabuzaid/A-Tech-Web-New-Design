@@ -17,7 +17,7 @@ export function Contact() {
           </div>
         </div>
       </section>
-      <ContactOptions />
+      {/* <ContactOptions /> */}
     </div>
   );
 }

@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { ArrowRight, Cpu, Code2, Network } from "lucide-react";
 import { motion, useMotionValue, useSpring, useTransform, Variants } from "framer-motion";
-
+import Link from 'next/link';
 interface NodeProps {
   delay: number;
   pos: string;
@@ -167,11 +167,13 @@ export const Hero: React.FC = () => {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex justify-center lg:justify-start w-full">
+              <Link href="/custom-project">
               <button className="px-6 py-3.5 lg:px-8 lg:py-4 rounded-xl text-sm lg:text-base text-white font-bold flex items-center justify-center transition-all duration-300 relative group overflow-hidden bg-[#9306FF] hover:bg-[#b047ff] hover:shadow-[0_0_40px_rgba(147,6,255,0.6)]">
                 <span className="relative z-10 flex items-center gap-2">
                   Start Your Project <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </span>
               </button>
+              </Link>
             </motion.div>
           </motion.div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Instagram, ArrowRight } from "lucide-react";
 import Link from "next/link"; 
 
 export const Footer: React.FC = () => {
@@ -26,14 +26,16 @@ export const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-3">
               {[
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
-                { icon: Github, href: "#" }
+                { icon: Linkedin, href: "https://www.linkedin.com/company/a-tech" },
+                { icon: Facebook, href: "https://www.facebook.com/atech.jo" }, 
+                { icon: Instagram, href: "https://www.instagram.com/atech.jo" }
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#9306FF]/20 hover:border-[#9306FF]/50 hover:text-white transition-all duration-300 group"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#9306FF] hover:border-[#9306FF] hover:text-white hover:shadow-[0_0_15px_rgba(147,6,255,0.4)] transition-all duration-300 group"
                 >
                   <social.icon size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
@@ -45,36 +47,23 @@ export const Footer: React.FC = () => {
             <h3 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Solutions</h3>
             <ul className="space-y-4">
               {[
-                { name: "Custom Development", href: "/services" },
-                { name: "ERP & POS Products", href: "/products" },
+                { name: "Custom Development", href: "/custom-project" },
+                { name: "ERP & POS Products", href: "https://a-tech-store.vercel.app/en" },
                 { name: "Our Process", href: "/process" },
                 { name: "Blog Insights", href: "/blog" }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <Link href={link.href} className="text-sm font-light hover:text-white transition-colors group flex items-center">
-                    <ArrowRight size={12} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 text-[#9306FF] transition-all duration-300" />
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Industries */}
-          <div className="lg:col-span-2">
-            <h3 className="text-white font-semibold mb-6 tracking-wide text-sm uppercase">Industries</h3>
-            <ul className="space-y-4">
-              {[
-                { name: "Retail & E-commerce", href: "/retail" },
-                { name: "Hospitality & Dining", href: "/hospitality" },
-                { name: "Enterprise Resources", href: "/resources" },
-                { name: "Case Studies", href: "/cases" }
-              ].map((link, idx) => (
-                <li key={idx}>
-                  <Link href={link.href} className="text-sm font-light hover:text-white transition-colors group flex items-center">
-                    <ArrowRight size={12} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 text-[#9306FF] transition-all duration-300" />
-                    {link.name}
-                  </Link>
+                  {link.href.startsWith("http") ? (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer" className="text-sm font-light hover:text-white transition-colors group flex items-center">
+                      <ArrowRight size={12} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 text-[#9306FF] transition-all duration-300" />
+                      {link.name}
+                    </a>
+                  ) : (
+                    <Link href={link.href} className="text-sm font-light hover:text-white transition-colors group flex items-center">
+                      <ArrowRight size={12} className="mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 text-[#9306FF] transition-all duration-300" />
+                      {link.name}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -108,8 +97,8 @@ export const Footer: React.FC = () => {
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light">
           <p>&copy; {new Date().getFullYear()} A-Tech. All rights reserved.</p>
           <div className="flex space-x-6">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            {/* <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link> */}
+            {/* <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link> */}
           </div>
         </div>
       </div>
